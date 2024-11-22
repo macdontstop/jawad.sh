@@ -20,7 +20,6 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://jawad.sh'),
   title: {
     template: '%s | Jawad Abdulrazzaq',
     default: 'Jawad Abdulrazzaq',
@@ -34,6 +33,7 @@ export const metadata: Metadata = {
     description: 'Personal website and portfolio showcasing my work and experience',
     siteName: 'Jawad Abdulrazzaq',
     locale: 'en_US',
+    url: 'https://jawad.sh',
     images: [
       {
         url: '/opengraph-image.png',
@@ -41,8 +41,11 @@ export const metadata: Metadata = {
         height: 630,
         alt: 'Jawad Abdulrazzaq - Frontend Engineer',
         type: 'image/png',
+        secureUrl: 'https://jawad.sh/opengraph-image.png',
       },
     ],
+    determiner: 'auto',
+    countryName: 'US',
   },
   twitter: {
     card: 'summary_large_image',
