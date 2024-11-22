@@ -15,7 +15,6 @@ const nextConfig = {
       dynamic: 30,
       static: 300,
     },
-    useLightningcss: true,
   },
 
   compress: true,
