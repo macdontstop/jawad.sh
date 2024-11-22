@@ -16,7 +16,8 @@ function NowPlayingSkeleton() {
         'inline-flex items-center gap-2 rounded-full',
         'bg-background/50 backdrop-blur-sm',
         'border border-border/50',
-        'px-3 py-1.5 text-xs',
+        'px-3 py-1.5',
+        'text-xs',
         'animate-pulse'
       )}
       aria-hidden="true"
@@ -48,7 +49,8 @@ function NowPlayingContent() {
           'inline-flex items-center gap-2 rounded-full',
           'bg-background/50 backdrop-blur-sm',
           'border border-border/50',
-          'px-3 py-1.5 text-xs',
+          'px-3 py-1.5',
+          'text-xs',
           'animate-in fade-in-0 slide-in-from-bottom-3',
           'transition-all duration-300 ease-in-out hover:pr-4',
           'group',
@@ -56,13 +58,13 @@ function NowPlayingContent() {
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary'
         )}
       >
-        <div className="relative size-5 shrink-0 overflow-hidden rounded-full sm:size-6" aria-hidden="true">
+        <div className="relative size-5 shrink-0 overflow-hidden rounded-full" aria-hidden="true">
           <Image
             src={spotify.album_art_url || ''}
             alt=""
             fill
             className={cn('object-cover', 'motion-safe:animate-[spin_5s_linear_infinite]')}
-            sizes="(max-width: 640px) 20px, 24px"
+            sizes="20px"
             priority={false}
             loading="lazy"
           />
