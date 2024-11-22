@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/opengraph-image.png',
+        url: 'https://i.ibb.co/YkM0VMD/opengraph-image.png',
         width: 1200,
         height: 630,
         alt: 'Jawad Abdulrazzaq - Frontend Engineer',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: 'Jawad Abdulrazzaq',
     description: 'Personal website and portfolio showcasing my work and experience',
     creator: '@macdontstop',
-    images: ['/opengraph-image.png'],
+    images: ['https://i.ibb.co/YkM0VMD/opengraph-image.png'],
   },
   robots: {
     index: true,
