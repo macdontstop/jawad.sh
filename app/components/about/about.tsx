@@ -2,8 +2,8 @@ import { Socials } from './socials';
 
 export function About() {
   return (
-    <article
-      role="contentinfo"
+    <section
+      role="region"
       aria-label="About section"
       className="prose prose-zinc dark:prose-invert max-w-none space-y-6 mt-12"
     >
@@ -18,6 +18,6 @@ export function About() {
       <div className="mt-8">
         <Socials />
       </div>
-    </article>
+    </section>
   );
 }

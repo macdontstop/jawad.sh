@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 interface Post {
+  id: string;
   date: string;
   title: string;
   description: string;
@@ -11,6 +12,7 @@ interface Post {
 // TODO: replace with mdx
 const posts: Post[] = [
   {
+    id: '1',
     date: '2024-11-22',
     title: 'Lorem ipsum dolor sit amet',
     description:
@@ -18,6 +20,7 @@ const posts: Post[] = [
     href: '/blog/lorem-ipsum-dolor-sit-amet',
   },
   {
+    id: '2',
     date: '2024-11-20',
     title: 'Lorem ipsum dolor sit amet',
     description:
@@ -38,7 +41,7 @@ export default function Posts() {
       <div className="grid gap-6">
         {posts.map((post) => (
           <article
-            key={post.title}
+            key={post.id}
             className={cn('group rounded-lg border', 'bg-card p-4', 'transition-colors', 'hover:bg-accent/40')}
           >
             <time dateTime={post.date} className={cn('text-sm', 'text-muted-foreground')}>

@@ -7,8 +7,8 @@ export async function Projects() {
   const projects = await getGitHubProjects();
 
   return (
-    <article
-      role="contentinfo"
+    <section
+      role="region"
       aria-label="Side projects section"
       className="prose prose-zinc dark:prose-invert max-w-none space-y-6 mt-12"
     >
@@ -35,7 +35,12 @@ export async function Projects() {
                   <span
                     role="status"
                     aria-label={`Project language: ${project.language}`}
-                    className="text-xs text-muted-foreground px-2.5 py-0.5 bg-muted rounded-full"
+                    className={cn(
+                      'text-xs font-medium',
+                      'px-2.5 py-0.5 rounded-full',
+                      'bg-muted/30 border border-border/50',
+                      'text-foreground/90'
+                    )}
                   >
                     {project.language}
                   </span>
@@ -48,6 +53,6 @@ export async function Projects() {
           </Link>
         ))}
       </div>
-    </article>
+    </section>
   );
 }
