@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     description: 'Personal website and portfolio showcasing my work and experience',
     creator: '@macdontstop',
     images: ['/opengraph-image.png'],
+    site: '@macdontstop',
   },
   robots: {
     index: true,
@@ -84,10 +85,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={cn('scroll-smooth', 'motion-safe:scroll-smooth')}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
       <body
         className={cn(
           'antialiased',
