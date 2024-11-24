@@ -14,7 +14,7 @@ export function Socials() {
               aria-label={social.ariaLabel}
               className="w-full p-3 flex items-center gap-3 group transition-all"
             >
-              <div className="bg-muted rounded-md p-1.5">
+              <div className="bg-muted/30 border border-border/50 rounded-full p-1.5">
                 <social.icon className="size-5 flex-shrink-0" aria-hidden="true" />
               </div>
               <span className="flex-1 text-sm text-foreground">{social.handle}</span>
