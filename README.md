@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://i.ibb.co/xmhB9n1/image-2.png" alt="Project Screenshot" width="600" />
+  <img src="https://i.ibb.co/x6cZdH1/image.png" alt="Project Screenshot" width="600" />
   
   # jawad.sh
   
