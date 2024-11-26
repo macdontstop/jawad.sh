@@ -11,8 +11,7 @@ export function About() {
 
       <div className="space-y-4">
         <p className="leading-relaxed">
-          I&apos;m a frontend engineer with a passion for building accessible, performant, and maintainable web
-          applications.
+          I&apos;m a frontend engineer dedicated to building accessible, performant, and maintainable web applications.
         </p>
       </div>
       <div className="mt-8">
