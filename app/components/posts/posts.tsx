@@ -53,11 +53,11 @@ export default function Posts() {
             key={post.id}
             href={post.href}
             className={cn(
-              // Base styles
+              // base styles
               'group relative bg-card',
               'flex flex-col gap-2',
               'p-4',
-              // Hover effects
+              // hover effects
               'transition-all duration-300',
               'hover:bg-gradient-to-br hover:from-neutral-100/50 hover:to-neutral-200/50',
               'dark:hover:from-neutral-900/50 dark:hover:to-neutral-800/50'
