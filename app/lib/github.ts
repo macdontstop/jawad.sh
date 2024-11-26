@@ -2,7 +2,7 @@ const GITHUB_API_BASE = 'https://api.github.com';
 const GITHUB_USER = 'macdontstop';
 const CACHE_REVALIDATE_TIME = 3600;
 
-interface GitHubRepo {
+export interface GitHubRepo {
   id: number;
   name: string;
   description: string | null;

@@ -58,11 +58,11 @@ const config: Config = {
       },
       keyframes: {
         shine: {
-          '100%': { left: '200%' },
+          '100%': { transform: 'translateX(100%) skewX(-12deg)' },
         },
       },
       animation: {
-        shine: 'shine 0.85s ease',
+        shine: 'shine 1s ease-in-out infinite',
       },
     },
   },
