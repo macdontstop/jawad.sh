@@ -3,30 +3,24 @@ import { persist } from 'zustand/middleware';
 
 interface SettingsState {
   isOpen: boolean;
-  reduceMotion: boolean;
-  prefetchPages: boolean;
+  enableAnimations: boolean;
 }
 
 interface SettingsActions {
   openSettings: () => void;
   closeSettings: () => void;
-  toggleReduceMotion: () => void;
-  togglePrefetchPages: () => void;
+  setEnableAnimations: (value: boolean) => void;
 }
 
 export const useSettingsStore = create<SettingsState & SettingsActions>()(
   persist(
     (set) => ({
-      // Initial state
       isOpen: false,
-      reduceMotion: false,
-      prefetchPages: true,
+      enableAnimations: true,
 
-      // Actions
       openSettings: () => set({ isOpen: true }),
       closeSettings: () => set({ isOpen: false }),
-      toggleReduceMotion: () => set((state) => ({ reduceMotion: !state.reduceMotion })),
-      togglePrefetchPages: () => set((state) => ({ prefetchPages: !state.prefetchPages })),
+      setEnableAnimations: (value) => set({ enableAnimations: value }),
     }),
     {
       name: 'settings-storage',
