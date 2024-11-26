@@ -18,30 +18,28 @@ export function LetsTalk() {
           <Link
             href="mailto:him@jawad.sh"
             className={cn(
-              // Base layout
+              // base layout
               'group relative isolate',
               'inline-flex items-center gap-3',
               'px-6 py-3.5',
-              // Glassmorphism effect
+              // glassmorphism effect
               'rounded-2xl',
               'bg-gradient-to-br from-background/10 to-background/30',
               'backdrop-blur-md',
               'border border-white/10',
-              // Shadow and depth
               'shadow-[0_0_1px_1px_rgba(0,0,0,0.05)]',
               'dark:shadow-[0_0_1px_1px_rgba(255,255,255,0.05)]',
-              // Interactive states
+              // interactive states
               'hover:border-accent/20',
               'hover:bg-gradient-to-br hover:from-background/20 hover:to-background/40',
               'focus-visible:outline-none focus-visible:ring-2',
               'focus-visible:ring-ring focus-visible:ring-offset-2',
-              // Glow effect on hover
               'before:absolute before:inset-0',
               'before:-z-10 before:rounded-2xl',
               'before:transition-all before:duration-500',
               'hover:before:bg-gradient-to-r hover:before:from-primary/10 hover:before:via-accent/10 hover:before:to-primary/10',
               'hover:before:blur-xl',
-              // Disabled state
+              // disabled state
               'disabled:opacity-50 disabled:pointer-events-none'
             )}
             aria-label="Send me an email"
