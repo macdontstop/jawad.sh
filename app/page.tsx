@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-
+import { StaggerChildren, StaggerItem } from '@/components/ui/stagger-children';
 import { About } from '@/app/components/about/about';
 import { Header } from '@/app/components/header/header';
 import { Projects } from '@/app/components/projects/projects';
@@ -20,12 +20,31 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main role="main" aria-label="Home page content" className="py-16 px-4 sm:px-6 mx-auto max-w-xl">
-      <Header />
-      <About />
-      <TechStack />
-      <Projects />
-      <Posts />
-      <LetsTalk />
+      <StaggerChildren>
+        <StaggerItem>
+          <Header />
+        </StaggerItem>
+
+        <StaggerItem>
+          <About />
+        </StaggerItem>
+
+        <StaggerItem>
+          <TechStack />
+        </StaggerItem>
+
+        <StaggerItem>
+          <Projects />
+        </StaggerItem>
+
+        <StaggerItem>
+          <Posts />
+        </StaggerItem>
+
+        <StaggerItem>
+          <LetsTalk />
+        </StaggerItem>
+      </StaggerChildren>
     </main>
   );
 }
