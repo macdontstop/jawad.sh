@@ -1,23 +1,17 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { IconMoon, IconSun, IconDeviceDesktop, IconRocket } from '@tabler/icons-react';
+import { IconMoon, IconSun, IconDeviceDesktop, IconLanguage } from '@tabler/icons-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { useSettingsStore } from '@/stores/settings-store';
 import { Button } from '@/components/ui/button';
-import { Switch } from '@/components/ui/switch';
 import { cn } from '@/lib/utils';
 import { Separator } from '@/components/ui/separator';
-import { useEffect } from 'react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 export function SettingsModal() {
-  const { isOpen, closeSettings, reduceMotion, prefetchPages, toggleReduceMotion, togglePrefetchPages } =
-    useSettingsStore();
+  const { isOpen, closeSettings } = useSettingsStore();
   const { setTheme, theme } = useTheme();
-
-  useEffect(() => {
-    document.documentElement.style.setProperty('--reduce-motion', reduceMotion ? 'reduce' : 'no-preference');
-  }, [reduceMotion]);
 
   const themes = [
     { value: 'light', label: 'Light', icon: IconSun },
@@ -69,28 +63,20 @@ export function SettingsModal() {
 
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-medium">Performance</h3>
-              <IconRocket className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+              <h3 className="text-sm font-medium">Language</h3>
+              <IconLanguage className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
             </div>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div className="space-y-1">
-                  <label htmlFor="reduce-motion" className="text-sm">
-                    Reduce Motion
-                  </label>
-                  <p className="text-xs text-muted-foreground">Minimize animations and transitions</p>
-                </div>
-                <Switch id="reduce-motion" checked={reduceMotion} onCheckedChange={toggleReduceMotion} />
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="space-y-1">
-                  <label htmlFor="prefetch" className="text-sm">
-                    Prefetch Pages
-                  </label>
-                  <p className="text-xs text-muted-foreground">Preload pages for faster navigation</p>
-                </div>
-                <Switch id="prefetch" checked={prefetchPages} onCheckedChange={togglePrefetchPages} />
-              </div>
+            <div className="space-y-1">
+              <Select disabled defaultValue="en">
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select language" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="en">English</SelectItem>
+                  <SelectItem value="ar">العربية</SelectItem>
+                </SelectContent>
+              </Select>
+              <p className="text-xs text-muted-foreground">Language selection coming soon</p>
             </div>
           </div>
         </div>
