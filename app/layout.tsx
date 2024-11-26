@@ -10,7 +10,9 @@ import { ThemeProvider } from '@/providers/theme-provider';
 import { Suspense } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
-import { ThemeToggle } from '@/components/theme-toggle';
+import { SettingsButton } from '@/components/settings/settings-button';
+import { SettingsModal } from '@/components/settings/settings-modal';
+import { SettingsProvider } from '@/providers/settings-provider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,6 +22,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jawad.sh'),
   title: {
     template: '%s | Jawad Abdulrazzaq',
     default: 'Jawad Abdulrazzaq',
@@ -108,15 +111,13 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="theme-preference"
         >
-          <main id="main-content" className="flex-grow">
-            <Suspense fallback={<div className="min-h-screen animate-pulse" />}>{children}</Suspense>
-            <ThemeToggle />
-          </main>
-
-          {/* TODO: Add footer back in */}
-          {/* <Suspense fallback={null}>
-            <Footer />
-          </Suspense> */}
+          <SettingsProvider>
+            <main id="main-content" className="flex-grow">
+              <Suspense fallback={<div className="min-h-screen animate-pulse" />}>{children}</Suspense>
+              <SettingsButton />
+              <SettingsModal />
+            </main>
+          </SettingsProvider>
         </ThemeProvider>
 
         <Analytics />

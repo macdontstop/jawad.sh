@@ -1,27 +1,61 @@
 import Link from 'next/link';
 import { SOCIALS } from '@/constants';
+import { cn } from '@/lib/utils';
 
 export function Socials() {
   return (
-    <div aria-label="Social media links" className="w-full">
-      <ul className="flex flex-wrap gap-2" role="list" aria-label="Social media profiles">
+    <nav aria-label="Social media links" className="w-full">
+      <ul className={cn('grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3', 'gap-3', 'w-full')} role="list">
         {SOCIALS.map((social) => (
-          <li key={social.name} className="flex-1 min-w-[140px] border rounded-md hover:bg-accent/40 transition-colors">
+          <li key={social.name} className="group">
             <Link
               href={social.url}
               target={social.url.startsWith('mailto:') ? undefined : '_blank'}
               rel={social.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
               aria-label={social.ariaLabel}
-              className="w-full p-3 flex items-center gap-3 group transition-all"
+              className={cn(
+                'flex items-center gap-3 p-3',
+                'w-full h-full',
+                'rounded-lg border bg-card/50',
+                'backdrop-blur-sm',
+                'transition-all duration-300',
+                'hover:bg-gradient-to-br hover:from-neutral-100/50 hover:to-neutral-200/50',
+                'dark:hover:from-neutral-900/50 dark:hover:to-neutral-800/50',
+                'hover:border-accent/50',
+                'focus-visible:outline-none focus-visible:ring-2',
+                'focus-visible:ring-ring focus-visible:ring-offset-2'
+              )}
             >
-              <div className="bg-muted/30 border border-border/50 rounded-full p-1.5">
-                <social.icon className="size-5 flex-shrink-0" aria-hidden="true" />
+              <social.icon
+                className={cn(
+                  'size-5 shrink-0',
+                  'text-muted-foreground',
+                  'transition-all duration-300',
+                  'group-hover:scale-110 group-hover:text-foreground'
+                )}
+                aria-hidden="true"
+              />
+              <div className="flex flex-col min-w-0">
+                <span
+                  className={cn('text-sm font-medium', 'transition-colors duration-200', 'group-hover:text-foreground')}
+                >
+                  {social.name}
+                </span>
+                <span
+                  className={cn(
+                    'text-xs text-muted-foreground',
+                    'truncate',
+                    'transition-colors duration-200',
+                    'group-hover:text-foreground/80'
+                  )}
+                >
+                  {social.handle}
+                </span>
               </div>
-              <span className="flex-1 text-sm text-foreground">{social.handle}</span>
             </Link>
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 }

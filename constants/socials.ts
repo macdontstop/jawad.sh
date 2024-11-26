@@ -1,4 +1,4 @@
-import { IconBrandGithub, IconBrandInstagram, IconBrandX, IconMail } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandInstagram, IconBrandX } from '@tabler/icons-react';
 import type { Icon } from '@tabler/icons-react';
 
 interface SocialLink {
