@@ -76,7 +76,6 @@ export function SettingsModal() {
                   <SelectItem value="ar">العربية</SelectItem>
                 </SelectContent>
               </Select>
-              <p className="text-xs text-muted-foreground">Language selection coming soon</p>
             </div>
           </div>
         </div>
