@@ -19,7 +19,11 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main role="main" aria-label="Home page content" className="py-16 px-4 sm:px-6 mx-auto max-w-xl">
+    <main role="main" aria-labelledby="main-heading" className="py-16 px-4 sm:px-6 mx-auto max-w-xl">
+      <h1 id="main-heading" className="sr-only">
+        Jawad Abdulrazzaq - Personal Website and Portfolio
+      </h1>
+
       <StaggerChildren>
         <StaggerItem>
           <Header />

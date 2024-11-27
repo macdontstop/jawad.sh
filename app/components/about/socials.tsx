@@ -12,7 +12,7 @@ export function Socials() {
               href={social.url}
               target={social.url.startsWith('mailto:') ? undefined : '_blank'}
               rel={social.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-              aria-label={social.ariaLabel}
+              aria-label={`${social.name}: ${social.handle}`}
               className={cn(
                 'flex items-center gap-3 p-3',
                 'w-full h-full',

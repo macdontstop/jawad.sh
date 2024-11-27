@@ -6,7 +6,6 @@ interface SocialLink {
   url: string;
   handle: string;
   icon: Icon;
-  ariaLabel: string;
 }
 
 export const SOCIALS: SocialLink[] = [
@@ -15,20 +14,17 @@ export const SOCIALS: SocialLink[] = [
     url: 'https://x.com/macdontstop',
     handle: 'macdontstop',
     icon: IconBrandX,
-    ariaLabel: 'Follow me on X (formerly Twitter)',
   },
   {
     name: 'GitHub',
     url: 'https://github.com/macdontstop',
     handle: 'macdontstop',
     icon: IconBrandGithub,
-    ariaLabel: 'View my projects on GitHub',
   },
   {
     name: 'Instagram',
     url: 'https://www.instagram.com/chaptrhouse',
     handle: 'chaptrhouse',
     icon: IconBrandInstagram,
-    ariaLabel: 'Follow me on Instagram',
   },
 ];

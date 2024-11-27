@@ -17,6 +17,7 @@ export function LetsTalk() {
 
           <Link
             href="mailto:him@jawad.sh"
+            aria-label="Let's Talk - Send me an email"
             className={cn(
               // base layout
               'group relative isolate',
@@ -42,7 +43,6 @@ export function LetsTalk() {
               // disabled state
               'disabled:opacity-50 disabled:pointer-events-none'
             )}
-            aria-label="Send me an email"
             rel="noopener noreferrer"
           >
             <IconMail
