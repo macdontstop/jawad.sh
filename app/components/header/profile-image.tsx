@@ -24,3 +24,5 @@ export function AvatarImage({ className }: AvatarImageProps) {
     </div>
   );
 }
+
+export default AvatarImage;

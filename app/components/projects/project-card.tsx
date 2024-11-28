@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { IconBrandGithub, IconArrowUpRight, IconStar } from '@tabler/icons-react';
-import { GitHubRepo } from '@/app/lib/github';
+import { IconBrandGithub, IconArrowUpRight } from '@tabler/icons-react';
+import { getLanguageColor, GitHubRepo } from '@/lib/github';
 
 interface ProjectCardProps {
   project: GitHubRepo;
@@ -19,95 +19,72 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         // base styles
         'group relative bg-card',
         'flex flex-col justify-between',
-        'min-h-[180px] p-6',
+        'p-6 rounded-xl',
+        'border border-border/40',
         // hover effects
         'transition-all duration-300',
-        'hover:bg-gradient-to-br hover:from-neutral-100/50 hover:to-neutral-200/50',
-        'dark:hover:from-neutral-900/50 dark:hover:to-neutral-800/50'
+        'hover:border-border/80',
+        'hover:shadow-lg hover:shadow-foreground/5',
+        'hover:bg-gradient-to-br hover:from-background hover:to-muted/50',
+        // focus styles
+        'focus-visible:outline-none focus-visible:ring-2',
+        'focus-visible:ring-ring focus-visible:ring-offset-2'
       )}
     >
-      <ProjectNumber index={index} />
-      <ProjectContent project={project} />
-      <ProjectFooter project={project} />
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <IconBrandGithub
+              className={cn(
+                'size-5 text-muted-foreground',
+                'transition-colors duration-300',
+                'group-hover:text-foreground'
+              )}
+              aria-hidden="true"
+            />
+            <h3 className="text-lg font-semibold tracking-tight">{project.name}</h3>
+          </div>
+          <span className={cn('font-mono text-sm text-muted-foreground')}>{String(index + 1).padStart(2, '0')}</span>
+        </div>
+
+        <p className={cn('text-base text-muted-foreground', 'line-clamp-2')}>
+          {project.description || 'No description available'}
+        </p>
+      </div>
+
+      <div className="flex items-center justify-between pt-6 mt-4 border-t border-border/40">
+        {project.language && (
+          <span className={cn('inline-flex items-center gap-1.5', 'text-sm text-muted-foreground')}>
+            <span
+              className="size-2 rounded-full"
+              style={{ backgroundColor: getLanguageColor(project.language) }}
+              aria-hidden="true"
+            />
+            {project.language}
+          </span>
+        )}
+
+        <div
+          className={cn(
+            'flex items-center gap-1',
+            'text-sm font-medium',
+            'text-muted-foreground',
+            'transition-colors duration-300',
+            'group-hover:text-primary'
+          )}
+        >
+          <span>View project</span>
+          <IconArrowUpRight
+            className={cn(
+              'size-4',
+              'transition-transform duration-300',
+              'group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+            )}
+          />
+        </div>
+      </div>
     </Link>
   );
 }
 
-function ProjectNumber({ index }: { index: number }) {
-  return (
-    <div className="absolute right-6 top-6">
-      <span className={cn('font-mono text-sm text-muted-foreground')}>{String(index + 1).padStart(2, '0')}</span>
-    </div>
-  );
-}
-
-function ProjectContent({ project }: { project: GitHubRepo }) {
-  return (
-    <div className="space-y-3 max-w-[85%]">
-      <div className="flex items-center gap-2">
-        <IconBrandGithub
-          className={cn(
-            'size-5 text-muted-foreground',
-            'transition-colors duration-300',
-            'group-hover:text-foreground'
-          )}
-          aria-hidden="true"
-        />
-        <h3 className="font-semibold tracking-tight">{project.name}</h3>
-      </div>
-      {project.description && (
-        <p className={cn('text-sm text-muted-foreground', 'line-clamp-2')}>{project.description}</p>
-      )}
-    </div>
-  );
-}
-
-function ProjectFooter({ project }: { project: GitHubRepo }) {
-  return (
-    <div className="flex items-center justify-between pt-6">
-      <ProjectMetadata project={project} />
-      <ViewProjectLink />
-    </div>
-  );
-}
-
-function ProjectMetadata({ project }: { project: GitHubRepo }) {
-  return (
-    <div className="flex items-center gap-4">
-      {project.language && (
-        <span className={cn('inline-flex items-center gap-1.5', 'text-xs text-muted-foreground')}>
-          <span className="size-2 rounded-full bg-primary/80" />
-          {project.language}
-        </span>
-      )}
-      {project.stargazers_count > 0 && (
-        <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
-          <IconStar className="size-3.5" aria-hidden="true" />
-          {project.stargazers_count}
-        </span>
-      )}
-    </div>
-  );
-}
-
-function ViewProjectLink() {
-  return (
-    <div
-      className={cn(
-        'flex items-center gap-1',
-        'text-sm text-muted-foreground',
-        'transition-colors duration-300',
-        'group-hover:text-primary'
-      )}
-    >
-      <span>View project</span>
-      <IconArrowUpRight
-        className={cn(
-          'size-4',
-          'transition-transform duration-300',
-          'group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
-        )}
-      />
-    </div>
-  );
-}
+export default ProjectCard;

@@ -6,7 +6,6 @@ import { Inter } from 'next/font/google';
 
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/providers/theme-provider';
-// import { Footer } from '@/app/components/footer';
 import { Suspense } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
