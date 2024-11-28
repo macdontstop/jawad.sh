@@ -60,9 +60,23 @@ const config: Config = {
         shine: {
           '100%': { transform: 'translateX(100%) skewX(-12deg)' },
         },
+        meteor: {
+          '0%': {
+            transform: 'rotate(215deg) translateX(0)',
+            opacity: '0',
+          },
+          '10%': {
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'rotate(215deg) translateX(-1500px)',
+            opacity: '0',
+          },
+        },
       },
       animation: {
         shine: 'shine 1s ease-in-out infinite',
+        meteor: 'meteor 5s linear infinite',
       },
     },
   },
