@@ -4,7 +4,7 @@ import { About } from '@/app/components/about/about';
 import { Header } from '@/app/components/header/header';
 import { Projects } from '@/app/components/projects/projects';
 import { TechStack } from '@/app/components/tech-stack/tech-stack';
-import Posts from '@/app/components/posts/posts';
+// import Posts from '@/app/components/posts/posts';
 import { LetsTalk } from '@/app/components/lets-talk';
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main role="main" aria-labelledby="main-heading" className="py-16 px-4 sm:px-6 mx-auto max-w-xl">
+    <main role="main" aria-labelledby="main-heading" className="py-16 px-4 sm:px-6 mx-auto max-w-2xl">
       <h1 id="main-heading" className="sr-only">
         Jawad Abdulrazzaq - Personal Website and Portfolio
       </h1>
@@ -41,9 +41,9 @@ export default function Home() {
           <Projects />
         </StaggerItem>
 
-        <StaggerItem>
+        {/* <StaggerItem>
           <Posts />
-        </StaggerItem>
+        </StaggerItem> */}
 
         <StaggerItem>
           <LetsTalk />

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { IconExternalLink } from '@tabler/icons-react';
 import { Suspense } from 'react';
 
-const DISCORD_ID = '1029852592475472043';
+const DISCORD_ID = BigInt(process.env.NEXT_PUBLIC_DISCORD_ID!);
 const SPOTIFY_BASE_URL = 'https://open.spotify.com/track';
 
 function NowPlayingSkeleton() {
@@ -16,7 +16,7 @@ function NowPlayingSkeleton() {
       className={cn(
         'inline-flex items-center gap-2',
         'rounded-full px-3 py-1.5',
-        'bg-background/50 backdrop-blur-sm',
+        'bg-card/50 backdrop-blur-sm',
         'border border-border/50',
         'animate-pulse'
       )}
@@ -29,7 +29,7 @@ function NowPlayingSkeleton() {
 }
 
 function NowPlayingContent() {
-  const { data, error } = useLanyard(DISCORD_ID);
+  const { data, error } = useLanyard(`${DISCORD_ID}`);
   const spotify = data?.spotify;
 
   if (error || !spotify) return null;
@@ -48,11 +48,12 @@ function NowPlayingContent() {
           'group inline-flex items-center gap-2',
           'rounded-full px-3 py-1.5',
           // visual style
-          'bg-background/50 backdrop-blur-sm',
+          'bg-card/50 backdrop-blur-sm',
           'border border-border/50',
           // interactive states
           'transition-all duration-200',
           'hover:bg-accent/40 hover:border-accent/50',
+          'hover:shadow-sm hover:shadow-accent/5',
           // accessibility
           'focus-visible:outline-none focus-visible:ring-2',
           'focus-visible:ring-ring focus-visible:ring-offset-2',
@@ -66,11 +67,7 @@ function NowPlayingContent() {
             alt=""
             fill
             sizes="16px"
-            className={cn(
-              'object-cover',
-              // spin animation only if user prefers motion
-              'motion-safe:animate-[spin_8s_linear_infinite]'
-            )}
+            className={cn('object-cover', 'motion-safe:animate-[spin_8s_linear_infinite]')}
             loading="lazy"
           />
         </div>
@@ -89,11 +86,9 @@ function NowPlayingContent() {
           className={cn(
             'size-3',
             'text-muted-foreground',
-            // show on hover/focus
-            'opacity-0 -translate-y-0.5',
             'transition-all duration-200',
-            'group-hover:opacity-100 group-hover:translate-y-0',
-            'group-focus-visible:opacity-100 group-focus-visible:translate-y-0'
+            'opacity-0 -translate-y-0.5',
+            'group-hover:opacity-100 group-hover:translate-y-0'
           )}
           aria-hidden="true"
         />
@@ -109,3 +104,5 @@ export function NowPlaying() {
     </Suspense>
   );
 }
+
+export default NowPlaying;
