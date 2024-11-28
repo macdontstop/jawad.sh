@@ -1,8 +1,8 @@
 import { cn } from '@/lib/utils';
-import { AvailabilityBadge } from '@/app/components/header/availability-badge';
-import { NowPlaying } from '@/app/components/header/now-playing';
-import { AvatarImage } from '@/app/components/header/profile-image';
-import { AuthorName } from '@/app/components/header/author-name';
+import AvatarImage from './profile-image';
+import AuthorName from './author-name';
+import AvailabilityBadge from './availability-badge';
+import NowPlaying from './now-playing';
 
 export function Header() {
   return (
