@@ -1,7 +1,6 @@
 import { cn } from '@/lib/utils';
 import type { TechItem } from '@/constants/tech';
 import Link from 'next/link';
-import { IconArrowUpRight } from '@tabler/icons-react';
 
 interface TechItemProps {
   tech: TechItem;
@@ -19,7 +18,7 @@ export function TechStackItem({ tech }: TechItemProps) {
         'flex items-center gap-4',
         'p-4 rounded-xl',
         'border border-border/40',
-        // hover effects - simplified
+        // hover effects
         'transition-colors duration-200',
         'hover:border-border',
         'hover:bg-muted/40',

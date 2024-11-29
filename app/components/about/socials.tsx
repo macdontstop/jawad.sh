@@ -18,7 +18,7 @@ export function Socials() {
               'flex items-center gap-3',
               'p-4 rounded-xl',
               'border border-border/40',
-              // hover effects - simplified
+              // hover effects
               'transition-colors duration-200',
               'hover:border-border',
               'hover:bg-muted/40',
