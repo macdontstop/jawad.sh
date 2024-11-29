@@ -22,10 +22,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         'p-6 rounded-xl',
         'border border-border/40',
         // hover effects
-        'transition-all duration-300',
-        'hover:border-border/80',
-        'hover:shadow-lg hover:shadow-foreground/5',
-        'hover:bg-gradient-to-br hover:from-background hover:to-muted/50',
+        'transition-colors duration-200',
+        'hover:border-border',
+        'hover:bg-muted/40',
         // focus styles
         'focus-visible:outline-none focus-visible:ring-2',
         'focus-visible:ring-ring focus-visible:ring-offset-2'

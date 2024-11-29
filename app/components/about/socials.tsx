@@ -19,10 +19,9 @@ export function Socials() {
               'p-4 rounded-xl',
               'border border-border/40',
               // hover effects
-              'transition-all duration-300',
-              'hover:border-border/80',
-              'hover:shadow-lg hover:shadow-foreground/5',
-              'hover:bg-gradient-to-br hover:from-background hover:to-muted/50',
+              'transition-colors duration-200',
+              'hover:border-border',
+              'hover:bg-muted/40',
               // focus styles
               'focus-visible:outline-none focus-visible:ring-2',
               'focus-visible:ring-ring focus-visible:ring-offset-2'
@@ -33,8 +32,8 @@ export function Socials() {
               className={cn(
                 'size-5 shrink-0',
                 'text-muted-foreground',
-                'transition-all duration-300',
-                'group-hover:scale-110 group-hover:text-foreground'
+                'transition-colors duration-200',
+                'group-hover:text-foreground'
               )}
               aria-hidden="true"
             />
