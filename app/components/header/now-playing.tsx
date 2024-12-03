@@ -4,7 +4,7 @@ import { useLanyard } from 'use-lanyard';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { IconExternalLink, IconMusic, IconPlayerPause, IconLoader2 } from '@tabler/icons-react';
+import { IconExternalLink, IconLoader2 } from '@tabler/icons-react';
 import { Suspense, useState, useEffect, useRef } from 'react';
 
 interface LyricLine {
@@ -163,8 +163,6 @@ function NowPlayingContent() {
     const updateProgress = () => {
       const now = Date.now();
       const start = Number(spotify.timestamps.start);
-      const end = Number(spotify.timestamps.end);
-      const duration = end - start;
       const elapsed = now - start;
       setProgress(elapsed / 1000);
     };
