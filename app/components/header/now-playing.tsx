@@ -146,7 +146,11 @@ function LyricsPopover({ trackId, currentTime }: LyricsPopoverProps) {
     );
   }
 
-  if (lyrics.length === 0) return null;
+  if (lyrics.length === 0) {
+    return (
+      <div className="h-full flex items-center justify-center text-xs text-muted-foreground">No lyrics available</div>
+    );
+  }
 
   return <LyricsContent lyrics={lyrics} currentTime={currentTime} />;
 }
